@@ -1,0 +1,8 @@
+POST http://localhost:8080/realms/poc-kc-nest-realm/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=nest-app
+&client_secret=za1ohdzR3fitq2LkkAT7n3vqlPnCuTWq
+&grant_type=password
+&username=nestapp
+&password=12345678
