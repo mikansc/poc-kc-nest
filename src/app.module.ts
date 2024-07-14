@@ -10,14 +10,14 @@ import {
   AuthGuard,
 } from 'nest-keycloak-connect';
 import { APP_GUARD } from '@nestjs/core';
+import { ConfigModule } from './config/config.module';
+import { KeycloakService } from './config/keycloak.service';
 
 @Module({
   imports: [
-    KeycloakConnectModule.register({
-      authServerUrl: 'http://localhost:8080',
-      realm: 'poc-kc-nest-realm',
-      clientId: 'nest-app',
-      secret: 'za1ohdzR3fitq2LkkAT7n3vqlPnCuTWq',
+    KeycloakConnectModule.registerAsync({
+      useExisting: KeycloakService,
+      imports: [ConfigModule],
     }),
     UserModule,
     AccountModule,
